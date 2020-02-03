@@ -2,16 +2,20 @@ import React, { Fragment } from "react";
 
 //IMPORT MATERIAL UI STUFF
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
 
 import ToDo from "./Todo";
 
-function TodoList({ todos, removeToDo }) {
+function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
   return (
     <Paper>
-      <List>
-        {todos.map(todo => (
+      <List
+        style={{
+          paddingBottom: "0"
+        }}
+      >
+        {todos.map((todo, i) => (
           <Fragment>
             <ToDo
               id={todo.id}
@@ -19,8 +23,10 @@ function TodoList({ todos, removeToDo }) {
               task={todo.task}
               key={todo.id}
               completed={todo.completed}
+              toggleTodo={toggleTodo}
+              editTodo={editTodo}
             />
-            <Divider />
+            {i < todos.length - 1 && <Divider />}
           </Fragment>
         ))}
       </List>
