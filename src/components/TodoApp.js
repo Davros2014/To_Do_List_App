@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+//import UUID for unique ID
+import uuidv4 from "uuid/v4";
+
 // IMPORT MATERIAL UI STUFF
 // eslint-disable-next-line
 import Typography from "@material-ui/core/Typography";
@@ -21,6 +24,15 @@ function TodoApp() {
   ];
 
   const [todos, setTodos] = useState(initialTodos);
+  const addToDo = newToDoText => {
+    setTodos([...todos, { id: uuidv4(), task: newToDoText, completed: false }]);
+  };
+  const removeToDo = toDoId => {
+    // filter out removed ToDo
+    const updatedTodos = todos.filter(todo => todo.id !== toDoId);
+    // call set ToDos
+    setTodos(updatedTodos);
+  };
   return (
     <Paper
       style={{
@@ -36,8 +48,12 @@ function TodoApp() {
           <Typography color="inherit">TODOS WITH HOOKS</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm />
-      <TodoList todos={todos} />
+      <Grid container justify="center" style={{ marginTop: "1rem" }}>
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm addToDo={addToDo} />
+          <TodoList removeToDo={removeToDo} todos={todos} />
+        </Grid>
+      </Grid>
     </Paper>
   );
 }
