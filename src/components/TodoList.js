@@ -6,6 +6,7 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 
 import ToDo from "./Todo";
+import "../components/ToDo.css";
 
 function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
   if (todos.length)
@@ -15,6 +16,7 @@ function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
           style={{
             paddingBottom: "0"
           }}
+          className="listStyles"
         >
           {todos.map((todo, i) => (
             <Fragment>
@@ -36,10 +38,3 @@ function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
   return null;
 }
 export default TodoList;
-
-// TO DO APP
-// -- TODO FORM
-// -- TODO LIST
-// -- TODO ITEM
-
-// id, task, completed

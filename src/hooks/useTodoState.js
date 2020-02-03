@@ -31,3 +31,29 @@
 
 import { useState } from "react";
 import uuid from "uuid/v4";
+
+export default initialTodos => {
+  const [todos, setTodos] = useState(initialTodos);
+  return {
+    todos,
+    addToDo: newToDoText => {
+      setTodos([...todos, { id: uuid(), task: newToDoText, completed: false }]);
+    },
+    removeToDo: toDoId => {
+      const updatedTodos = todos.filter(todo => todo.id !== toDoId);
+      setTodos(updatedTodos);
+    },
+    toggleTodo: toDoId => {
+      const updatedTodos = todos.map(todo =>
+        todo.id === toDoId ? { ...todo, completed: !todo.completed } : todo
+      );
+      setTodos(updatedTodos);
+    },
+    editTodo: (toDoId, newTask) => {
+      const editTodos = todos.map(todo =>
+        todo.id === toDoId ? { ...todo, task: newTask } : todo
+      );
+      setTodos(editTodos);
+    }
+  };
+};

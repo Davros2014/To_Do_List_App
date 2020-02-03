@@ -15,12 +15,15 @@ function TodoForm({ addToDo }) {
           addToDo(value);
           reset();
         }}
+        className="listStyles"
       >
         <TextField
           value={value}
           onChange={handleChange}
+          required={true}
           margin="normal"
-          label="Add new Todo"
+          label="Add new list item here & press enter"
+          style={{ width: "100%" }}
         />
       </form>
     </Paper>
