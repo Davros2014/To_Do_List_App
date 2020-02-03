@@ -17,14 +17,14 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 function TodoApp() {
-  const defaultTodos = [
-    { id: 1, task: "clean fishtank", completed: false },
-    { id: 2, task: "wash car", completed: true },
-    { id: 3, task: "grow beard", completed: false }
-  ];
+  // const defaultTodos = [
+  //   { id: 1, task: "clean fishtank", completed: false },
+  //   { id: 2, task: "wash car", completed: true },
+  //   { id: 3, task: "grow beard", completed: false }
+  // ];
 
   const localdata = window.localStorage.getItem("todos");
-  const initialTodos = JSON.parse(localdata) || defaultTodos;
+  const initialTodos = JSON.parse(localdata) || "[]";
 
   const [todos, setTodos] = useState(initialTodos);
 
@@ -54,6 +54,7 @@ function TodoApp() {
     );
     setTodos(editTodos);
   };
+
   return (
     <Paper
       style={{
