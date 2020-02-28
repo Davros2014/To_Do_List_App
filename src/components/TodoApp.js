@@ -14,12 +14,6 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 function TodoApp() {
-  // const defaultTodos = [
-  //   { id: 1, task: "thing1", completed: false },
-  //   { id: 2, task: "thing2", completed: true },
-  //   { id: 3, task: "thing3", completed: false }
-  // ];
-
   const localdata = window.localStorage.getItem("todos");
   const initialTodos = JSON.parse(localdata) || "[]";
 
@@ -31,29 +25,6 @@ function TodoApp() {
   useEffect(() => {
     window.localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-
-  // const addToDo = newToDoText => {
-  //   setTodos([...todos, { id: uuidv4(), task: newToDoText, completed: false }]);
-  // };
-  // const removeToDo = toDoId => {
-  //   // filter out removed ToDo
-  //   const updatedTodos = todos.filter(todo => todo.id !== toDoId);
-  //   // call set ToDos
-  //   setTodos(updatedTodos);
-  // };
-  //
-  // const toggleTodo = toDoId => {
-  //   const updatedTodos = todos.map(todo =>
-  //     todo.id === toDoId ? { ...todo, completed: !todo.completed } : todo
-  //   );
-  //   setTodos(updatedTodos);
-  // };
-  // const editTodo = (toDoId, newTask) => {
-  //   const editTodos = todos.map(todo =>
-  //     todo.id === toDoId ? { ...todo, task: newTask } : todo
-  //   );
-  //   setTodos(editTodos);
-  // };
 
   return (
     <Paper

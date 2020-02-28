@@ -19,7 +19,7 @@ function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
           className="listStyles"
         >
           {todos.map((todo, i) => (
-            <Fragment>
+            <Fragment key={i}>
               <ToDo
                 id={todo.id}
                 removeToDo={removeToDo}
@@ -38,3 +38,29 @@ function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
   return null;
 }
 export default TodoList;
+
+// function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
+//   if (todos.length)
+//     return (
+//       <Paper>
+//         <List>
+//           {todos.map((todo, i) => (
+//             // To add a key to a fragment, we have to use the long-hand version
+//             // rather than <> </>, we have to use <React.Fragment>
+//             <React.Fragment key={i}>
+//               <ToDo
+//                 {...todo}
+//                 key={todo.id}
+//                 removeTodo={removeTodo}
+//                 toggleTodo={toggleTodo}
+//                 editTodo={editTodo}
+//               />
+//               {i < todos.length - 1 && <Divider />}
+//             </React.Fragment>
+//           ))}
+//         </List>
+//       </Paper>
+//     );
+//   return null;
+// }
+// export default TodoList;
