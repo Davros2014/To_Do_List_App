@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { useContext, Fragment } from "react";
+import { TodosContext } from "../contexts/TodosContext";
 
 //IMPORT MATERIAL UI STUFF
 import Paper from "@material-ui/core/Paper";
@@ -8,7 +9,9 @@ import Divider from "@material-ui/core/Divider";
 import ToDo from "./Todo";
 import "../components/ToDo.css";
 
-function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
+function TodoList() {
+  const { todos } = useContext(TodosContext);
+
   if (todos.length)
     return (
       <Paper>
@@ -22,12 +25,9 @@ function TodoList({ todos, removeToDo, toggleTodo, editTodo }) {
             <Fragment key={i}>
               <ToDo
                 id={todo.id}
-                removeToDo={removeToDo}
                 task={todo.task}
                 key={todo.id}
                 completed={todo.completed}
-                toggleTodo={toggleTodo}
-                editTodo={editTodo}
               />
               {i < todos.length - 1 && <Divider />}
             </Fragment>

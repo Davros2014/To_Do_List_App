@@ -1,6 +1,7 @@
 import React from "react";
 
-import useToDoState from "../hooks/useToDoState";
+// import useToDoState from "../hooks/useToDoState";
+import { TodosProvider } from "../contexts/TodosContext";
 
 // IMPORT MATERIAL UI STUFF
 import Typography from "@material-ui/core/Typography";
@@ -14,12 +15,6 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 export default function TodoApp() {
-  const initialTodos = [
-    { id: 1, task: "Well, this one wont go away", completed: false }
-  ];
-  const { todos, addToDo, removeToDo, toggleTodo, editTodo } = useToDoState(
-    initialTodos
-  );
   return (
     <Paper
       style={{
@@ -58,13 +53,10 @@ export default function TodoApp() {
       </AppBar>
       <Grid container justify="center" style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
-          <TodoForm addToDo={addToDo} />
-          <TodoList
-            toggleTodo={toggleTodo}
-            removeToDo={removeToDo}
-            todos={todos}
-            editTodo={editTodo}
-          />
+          <TodosProvider>
+            <TodoForm />
+            <TodoList />
+          </TodosProvider>
         </Grid>
       </Grid>
     </Paper>
