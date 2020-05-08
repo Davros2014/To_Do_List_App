@@ -10,7 +10,7 @@ import ToDo from "./Todo";
 import "../components/ToDo.css";
 
 function TodoList() {
-  const { todos } = useContext(TodosContext);
+  const todos = useContext(TodosContext);
 
   if (todos.length)
     return (

@@ -2,8 +2,7 @@ import React, { useContext, Fragment } from "react";
 
 // hooks/contexts
 import useToggleState from "../hooks/useToggleState";
-import { TodosContext } from "../contexts/TodosContext";
-
+import { DispatchContext } from "../contexts/TodosContext";
 //components
 import EditTodoForm from "./EditTodoForm";
 
@@ -17,7 +16,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 function ToDo({ id, task, completed }) {
-  const { dispatch } = useContext(TodosContext);
+  const dispatch = useContext(DispatchContext);
   const [isEditing, toggle] = useToggleState(false);
 
   return (

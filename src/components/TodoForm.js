@@ -3,11 +3,12 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 
 import useInputState from "../hooks/useInputState";
-import { TodosContext } from "../contexts/TodosContext";
+import { DispatchContext } from "../contexts/TodosContext";
 
 function TodoForm(props) {
   const [value, handleChange, reset] = useInputState("");
-  const { dispatch } = useContext(TodosContext);
+  const dispatch = useContext(DispatchContext);
+  console.log("to do form render!!!");
   return (
     <Paper style={{ margin: "1rem 0 ", padding: "0 1rem" }}>
       <form
