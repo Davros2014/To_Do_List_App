@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, memo } from "react";
 
 // hooks/contexts
 import useToggleState from "../hooks/useToggleState";
@@ -18,6 +18,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 function ToDo({ id, task, completed }) {
   const dispatch = useContext(DispatchContext);
   const [isEditing, toggle] = useToggleState(false);
+  console.log("to do re-render!!!", id);
 
   return (
     <ListItem style={{ height: "64px" }} className="listStyles">
@@ -55,4 +56,4 @@ function ToDo({ id, task, completed }) {
     </ListItem>
   );
 }
-export default ToDo;
+export default memo(ToDo);
