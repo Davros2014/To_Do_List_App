@@ -37,17 +37,36 @@ export default function TodoApp() {
         }}
         className="gradientColor"
       >
-        <Toolbar>
+        <Toolbar
+          style={{
+            textAlign: "center",
+            dsiplay: "flex",
+            flexDirection: "column"
+          }}
+        >
           <Typography
             color="inherit"
             justify="center"
             style={{
               textAlign: "center",
               margin: "auto",
+              marginBottom: "0",
               fontSize: "calc(1rem + 0.25vw)"
             }}
           >
-            TO DO LIST w/ HOOKS
+            THINGS TO DO LIST
+          </Typography>
+          <Typography
+            color="inherit"
+            justify="center"
+            style={{
+              textAlign: "center",
+              margin: "auto",
+              fontSize: "calc(0.75rem + 0.25vw)",
+              marginTop: "0"
+            }}
+          >
+            Made with React, using hooks, context & local storage
           </Typography>
         </Toolbar>
       </AppBar>
