@@ -4,7 +4,11 @@ import useLocalStorageReducer from "../reducers/useLocalStorageReducer";
 import todosReducer from "../reducers/todosReducer";
 // import useTodoState from "../hooks/useToDoState";
 const defaultTodos = [
-  { id: 1, task: "Get myself a gun", completed: false },
+  {
+    id: 1,
+    task: "Buy ticket to Edinburgh",
+    completed: false
+  },
   { id: 2, task: "Flowers for the wife", completed: true }
 ];
 
