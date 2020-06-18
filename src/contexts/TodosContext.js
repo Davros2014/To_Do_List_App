@@ -6,10 +6,10 @@ import todosReducer from "../reducers/todosReducer";
 const defaultTodos = [
   {
     id: 1,
-    task: "Buy ticket to Edinburgh",
+    task: "Find a job as a developer",
     completed: false
   },
-  { id: 2, task: "Flowers for the wife", completed: true }
+  { id: 2, task: "Socially isolate from the corona virus...", completed: true }
 ];
 
 export const TodosContext = createContext();
